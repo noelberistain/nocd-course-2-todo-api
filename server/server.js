@@ -5,30 +5,30 @@ var { mongoose } = require('./db/mongoose');
 var { Todo } = require('./models/todo');
 var { User } = require('./models/user');
 
-var { User } = require('./models/user');
 var app = express();
 
 app.use(bodyParser.json());
 
-app.post('/todos', (req, res) => {
-    console.log(req.body);
-});
+// app.post('/todos', (req, res) => {
+//     console.log(req.body);
+// });
 
-app.listen(3000, () => {
+app.listen(3000, function(){
     console.log('Started on port 3000');
 });
 
-app.post('/todos', (req, res) => {
+app.post('/todos', function(req, res){
     var todo = new Todo({
         text: req.body.text
     });
 
     todo.save().then(
-        doc => res.send(doc),
-        e => res.status(400).send(e));
+        function(doc) {res.send(doc)},
+        function(e){res.status(400).send(e)});
 
 });
 
+module.exports = {app};
 // var newTodo = new Todo({
 //     text: '     '
 // });
