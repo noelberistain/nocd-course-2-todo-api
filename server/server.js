@@ -13,22 +13,30 @@ app.use(bodyParser.json());
 //     console.log(req.body);
 // });
 
-app.listen(3000, function(){
+app.listen(3000, function () {
     console.log('Started on port 3000');
 });
 
-app.post('/todos', function(req, res){
+app.post('/todos', function (req, res) {
     var todo = new Todo({
         text: req.body.text
     });
 
     todo.save().then(
-        function(doc) {res.send(doc)},
-        function(e){res.status(400).send(e)});
+        function (doc) { res.send(doc) },
+        function (e) { res.status(400).send(e) });
 
 });
 
-module.exports = {app};
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        res.send({ todos });
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+module.exports = { app };
 // var newTodo = new Todo({
 //     text: '     '
 // });
