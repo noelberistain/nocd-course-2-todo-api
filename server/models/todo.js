@@ -1,8 +1,3 @@
-const expect = require('expect');
-const request = require('supertest');
-const {app} = require('./../server');
-// const {Todo} = require('./../models/todo');
-
 var mongoose = require('mongoose');
 
 var Todo = mongoose.model('Todo', {
