@@ -9,8 +9,8 @@ var app = express();
 
 app.use(bodyParser.json());
 
-app.listen(3001, () => {
-    console.log('Started on port 3001');
+app.listen(3000, () => {
+    console.log('Started on port 3000');
 });
 
 app.post('/todos', (req, res) => {
@@ -25,16 +25,12 @@ app.post('/todos', (req, res) => {
 
 });
 
-app.use("/Hola",(req,res)=>{
-    res.send("hi");
-})
-
-// app.get('/todos', (req, res) => {
-//     Todo.find().then((todos) => {
-//         res.send({ todos });
-//     }, (e) => {
-//         res.status(400).send(e);
-//     });
-// });
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        res.send({ todos });
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
 module.exports = { app };
