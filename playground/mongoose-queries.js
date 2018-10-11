@@ -3,7 +3,7 @@ const { Todo } = require('./../server/models/todo');
 const { ObjectID } = require('mongodb');
 const { User } = require('./../server/models/user');
 
-var userId = "5bb69fb7b130680a6ca12edf";
+// var userId = "5bb69fb7b130680a6ca12edf";
 // if (ObjectID.isValid(id)) {
 //     console.log('ID valid');
 // }
