@@ -6,10 +6,10 @@ const { ObjectID } = require('mongodb');
 
 const todos = [{
     _id: new ObjectID(),
-    text: 'First test todo'
+    text: '1 test todo'
 }, {
     _id: new ObjectID(),
-    text: 'Second test todo'
+    text: '2 test todo'
 }];
 
 beforeEach((done) => {
